@@ -10,9 +10,9 @@ import MapKit
 
 struct ContentView: View {
 
-    @State var region : MKCoordinateRegion = .init(center: CLLocationCoordinate2D(latitude: 24.774265, longitude: 46.738586), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    @State private var region : MKCoordinateRegion = .init(center: CLLocationCoordinate2D(latitude: 24.774265, longitude: 46.738586), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     
-    var annotations : [City] = [City(name: "Riyadh", coordinate: CLLocationCoordinate2D(latitude: 24.774265, longitude: 46.738586))]
+    @State var annotations : [Location] = []
 
     var body: some View {
         VStack{
@@ -22,7 +22,6 @@ struct ContentView: View {
                        }
                     .ignoresSafeArea()
 
-            
                 Circle()
                     .fill(Color.blue.opacity(0.3))
                     .frame(width: 30, height: 30)
@@ -31,6 +30,9 @@ struct ContentView: View {
           
             
             Button {
+                let newLocation = MKPointAnnotation()
+                newLocation.coordinate = self.region.center
+                annotations.append(Location(coordinate: newLocation.coordinate))
                 
             } label: {
                 
