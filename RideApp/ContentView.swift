@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
-    
+    @EnvironmentObject var settingViewModel : SettengsViewModel
     @StateObject var viewModel = MapViewModel()
     @State var showSettengs : Bool = false
 
@@ -69,7 +69,9 @@ struct ContentView: View {
                 
             }
         }
-        .sheet(isPresented: $showSettengs) {
+        .sheet(isPresented: $showSettengs,onDismiss: {
+            settingViewModel.storedTravelRadius = settingViewModel.travelRadius
+        }) {
             SettingsView()
         }
     }

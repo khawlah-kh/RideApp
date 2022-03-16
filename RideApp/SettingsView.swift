@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State var travelRadius : Double = 300
+    
+    @EnvironmentObject var settingViewModel : SettengsViewModel
+    //@State var travelRadius : Double = 300
+    //@AppStorage("travelRadius") var travelRadius: Double = 300
     @Environment (\.presentationMode) var presentationMode
     var numbeOfCars : Int {
-        Int(travelRadius) / 100
+        Int(settingViewModel.travelRadius) / 100
     }
     var body: some View {
         VStack{
@@ -39,7 +42,7 @@ struct SettingsView: View {
             
          Text("How far do like to drive?")
                 .bold()
-            Slider(value: $travelRadius,in :100 ... 500,step: 100)
+            Slider(value: $settingViewModel.travelRadius,in :100 ... 500,step: 100)
                 .padding()
             HStack{
                 ForEach(0 ..< numbeOfCars,id:\.self){_ in
@@ -49,7 +52,7 @@ struct SettingsView: View {
             }
             }
             .padding()
-            Text("My Radius is \(Int(travelRadius)) km")
+            Text("My Radius is \(Int(settingViewModel.travelRadius)) km")
                 .font(.headline)
                 .foregroundColor(.gray)
             Spacer()

@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct RideAppApp: App {
+    @State var settingViewModel = SettengsViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(settingViewModel)
         }
     }
 }
