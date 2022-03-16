@@ -9,34 +9,31 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
-
-    @State private var region : MKCoordinateRegion = .init(center: CLLocationCoordinate2D(latitude: 24.774265, longitude: 46.738586), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     
-    @State var annotations : [Location] = []
+    @StateObject var viewModel = MapViewModel()
+    @State var showSettengs : Bool = false
 
     var body: some View {
         VStack{
             ZStack{
-                Map(coordinateRegion: $region, annotationItems: annotations) {
-                           MapMarker(coordinate: $0.coordinate)
-                       }
-                    .ignoresSafeArea()
-
+                Map(coordinateRegion: $viewModel.region, annotationItems: viewModel.annotations) {
+                    MapMarker(coordinate: $0.coordinate)
+                }
+                .ignoresSafeArea()
+                
                 Circle()
                     .fill(Color.blue.opacity(0.3))
                     .frame(width: 30, height: 30)
-                
             }
-          
+            
             
             Button {
-                let newLocation = MKPointAnnotation()
-                newLocation.coordinate = self.region.center
-                annotations.append(Location(coordinate: newLocation.coordinate))
+
+                viewModel.handelButtonTapped()
                 
             } label: {
                 
-                Image(systemName: "plus")
+                Image(systemName: viewModel.locationNumber < 2 ? "plus" : "trash" )
                     .padding()
                     .background(Color.red)
                     .foregroundColor(.white)
@@ -49,23 +46,31 @@ struct ContentView: View {
                 .font(.title)
                 .bold()
                 .padding()
-           // ZStack{
-            Circle()
-                .stroke(Color.red.opacity(0.4),lineWidth: 20)
-                .frame(width: 300, height: 300)
-                .padding()
-           // }
+            ZStack{
+                Circle()
+                    .stroke(Color.red.opacity(0.4),lineWidth: 20)
+                    .frame(width: 300, height: 300)
+                    .padding()
+                
+                if viewModel.distance != 0{
+                    Text("\(Int(viewModel.distance)) km")
+                        .bold()
+                }
+            }
             HStack{
                 Spacer()
                 Button {
-                    
+                    showSettengs.toggle()
                 } label: {
                     Image(systemName: "gear")
                         .font(.title)
                         .padding()
                 }
-
+                
             }
+        }
+        .sheet(isPresented: $showSettengs) {
+            SettingsView()
         }
     }
 }

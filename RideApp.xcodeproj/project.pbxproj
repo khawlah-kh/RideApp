@@ -7,20 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90298BE127E1A3590014ABD5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90298BE027E1A3590014ABD5 /* SettingsView.swift */; };
 		9043B65127DEF70400738C97 /* RideAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9043B65027DEF70400738C97 /* RideAppApp.swift */; };
 		9043B65327DEF70400738C97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9043B65227DEF70400738C97 /* ContentView.swift */; };
 		9043B65527DEF70500738C97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9043B65427DEF70500738C97 /* Assets.xcassets */; };
 		9043B65827DEF70500738C97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9043B65727DEF70500738C97 /* Preview Assets.xcassets */; };
 		9043B65F27DF005C00738C97 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9043B65E27DF005C00738C97 /* Location.swift */; };
+		9071993727E0730700D31C17 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071993627E0730700D31C17 /* MapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		90298BE027E1A3590014ABD5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9043B64D27DEF70400738C97 /* RideApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9043B65027DEF70400738C97 /* RideAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideAppApp.swift; sourceTree = "<group>"; };
 		9043B65227DEF70400738C97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9043B65427DEF70500738C97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9043B65727DEF70500738C97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9043B65E27DF005C00738C97 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		9071993627E0730700D31C17 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			children = (
 				9043B65027DEF70400738C97 /* RideAppApp.swift */,
 				9043B65227DEF70400738C97 /* ContentView.swift */,
+				90298BE027E1A3590014ABD5 /* SettingsView.swift */,
+				9071993527E072E700D31C17 /* ViewModel */,
 				9043B65427DEF70500738C97 /* Assets.xcassets */,
 				9043B65627DEF70500738C97 /* Preview Content */,
 				9043B65E27DF005C00738C97 /* Location.swift */,
@@ -68,6 +74,14 @@
 				9043B65727DEF70500738C97 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9071993527E072E700D31C17 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9071993627E0730700D31C17 /* MapViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90298BE127E1A3590014ABD5 /* SettingsView.swift in Sources */,
 				9043B65327DEF70400738C97 /* ContentView.swift in Sources */,
 				9043B65F27DF005C00738C97 /* Location.swift in Sources */,
 				9043B65127DEF70400738C97 /* RideAppApp.swift in Sources */,
+				9071993727E0730700D31C17 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
