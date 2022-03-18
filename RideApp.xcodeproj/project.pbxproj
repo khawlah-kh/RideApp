@@ -60,12 +60,11 @@
 			isa = PBXGroup;
 			children = (
 				9043B65027DEF70400738C97 /* RideAppApp.swift */,
-				9043B65227DEF70400738C97 /* ContentView.swift */,
-				90298BE027E1A3590014ABD5 /* SettingsView.swift */,
+				90DA78B427E462AC00A23639 /* View */,
+				90DA78B327E4628300A23639 /* Model */,
 				9071993527E072E700D31C17 /* ViewModel */,
 				9043B65427DEF70500738C97 /* Assets.xcassets */,
 				9043B65627DEF70500738C97 /* Preview Content */,
-				9043B65E27DF005C00738C97 /* Location.swift */,
 			);
 			path = RideApp;
 			sourceTree = "<group>";
@@ -85,6 +84,23 @@
 				90298BE227E1B3630014ABD5 /* SettengsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		90DA78B327E4628300A23639 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9043B65E27DF005C00738C97 /* Location.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		90DA78B427E462AC00A23639 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9043B65227DEF70400738C97 /* ContentView.swift */,
+				90298BE027E1A3590014ABD5 /* SettingsView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

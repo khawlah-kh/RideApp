@@ -10,24 +10,20 @@ import SwiftUI
 struct SettingsView: View {
     
     @EnvironmentObject var settingViewModel : SettengsViewModel
-    //@State var travelRadius : Double = 300
-    //@AppStorage("travelRadius") var travelRadius: Double = 300
     @Environment (\.presentationMode) var presentationMode
-    var numbeOfCars : Int {
-        Int(settingViewModel.travelRadius) / 100
-    }
+    
     var body: some View {
         VStack{
             HStack{
                 Spacer()
-            Button {
-                presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Done")
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Done")
+                }
+                .padding()
             }
-            .padding()
-            }
-           
+            
             Image(systemName: "map")
                 .padding()
                 .foregroundColor(Color(.systemBackground))
@@ -35,21 +31,22 @@ struct SettingsView: View {
                 .background(LinearGradient(colors: [.red,.pink], startPoint: .top, endPoint: .bottom))
                 .cornerRadius(15)
                 .padding()
-        Text("Your Ride Expierence")
-            .font(.largeTitle)
-            .bold()
+            
+            Text("Your Ride Expierence")
+                .font(.largeTitle)
+                .bold()
             Spacer().frame(height: 100)
             
-         Text("How far do like to drive?")
+            Text("How far do like to drive?")
                 .bold()
             Slider(value: $settingViewModel.travelRadius,in :100 ... 500,step: 100)
                 .padding()
             HStack{
-                ForEach(0 ..< numbeOfCars,id:\.self){_ in
-               
-                Image(systemName: "car.fill")
-                    .font(.title)
-            }
+                ForEach(0 ..< settingViewModel.numbeOfCars,id:\.self){_ in
+                    
+                    Image(systemName: "car.fill")
+                        .font(.title)
+                }
             }
             .padding()
             Text("My Radius is \(Int(settingViewModel.travelRadius)) km")

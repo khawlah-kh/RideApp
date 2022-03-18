@@ -12,12 +12,12 @@ final class SettengsViewModel : ObservableObject{
     
     @Published var travelRadius : Double = 300
     @AppStorage("travelRadius") var storedTravelRadius: Double = 300
-
     
+    var numbeOfCars : Int {
+        Int(travelRadius) / 100
+    }
     init(){
-       travelRadius = storedTravelRadius
-        print(storedTravelRadius,"💙")
-        
+        travelRadius = storedTravelRadius
     }
     
 }

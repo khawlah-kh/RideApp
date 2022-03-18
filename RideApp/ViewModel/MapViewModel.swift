@@ -23,13 +23,14 @@ final class MapViewModel : ObservableObject{
         annotations.count
     }
     
+    let gradient = AngularGradient(gradient: Gradient(colors: [Color.red,Color.pink]), center: .center, startAngle: Angle(degrees: 0), endAngle: Angle(degrees: 360))
     func distance (_ locations : [Location]){
         
         if let firstLocation = locations.first?.coordinate , let secondLocation = locations.last?.coordinate{
             self.distance = Double(firstLocation.distance(to: secondLocation) / 1000)
             
             
-             
+            
         }
         
     }
@@ -47,7 +48,7 @@ final class MapViewModel : ObservableObject{
             distance = 0
             annotations.removeAll()
         }
- 
+        
     }
     
 }
@@ -55,10 +56,10 @@ final class MapViewModel : ObservableObject{
 
 
 extension CLLocationCoordinate2D {
-
+    
     /// Returns the distance between two coordinates in meters.
     func distance(to: CLLocationCoordinate2D) -> CLLocationDistance {
         MKMapPoint(self).distance(to: MKMapPoint(to))
     }
-
+    
 }
